@@ -45,10 +45,10 @@ $page = new $controller;
  */
 if ($_action !== null) {
   include_once "./public/partials/_header.php";
-  include_once "./public/views/" . ucfirst(strtolower($_controller)) . "/" . ucfirst(strtolower($_action)) . "View.php";
+  include_once "./public/Views/" . ucfirst(strtolower($_controller)) . "/" . ucfirst(strtolower($_action)) . "View.php";
   include_once "./public/partials/_footer.php";
 } else {
   include_once "./public/partials/_header.php";
-  include_once "./public/views/" . ucfirst(strtolower($_controller)) . "/" . ucfirst(strtolower($_controller)) . "View.php";
+  include_once "./public/Views/" . ucfirst(strtolower($_controller)) . "/" . ucfirst(strtolower($_controller)) . "View.php";
   include_once "./public/partials/_footer.php";
 }

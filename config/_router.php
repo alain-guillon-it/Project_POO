@@ -2,6 +2,16 @@
 
 global $_controller, $_action, $_id;
 
+switch($_SERVER["REQUEST_URI"]) {
+  case "/":
+    case "/home":
+      $_controller = "home";
+      break;
+  default:
+      $_controller = "error";
+      break;
+}
+
 /**
  * ======================================================================
  * Check conditions $_GET["page"]
@@ -12,11 +22,8 @@ global $_controller, $_action, $_id;
 if (isset($_GET["page"]) && !empty($_GET["page"])) {
   $getPage = trim(htmlspecialchars(strtolower($_GET["page"])));
   $checkPageValue = ["home", "film", "serie", "actor", "realisator", "error"];
-
   $_controller = in_array($getPage, $checkPageValue) ? $getPage : header("Location: /?page=error&action=404");
-} elseif ((!isset($_GET["page"]) || empty($_GET["page"])) || !$_SERVER["REQUEST_URI"] == "/") {
-  header("Location: /?page=error&action=404");
-}
+} 
 
 /**
  * ======================================================================
