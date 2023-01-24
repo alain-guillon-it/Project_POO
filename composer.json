@@ -1,0 +1,24 @@
+{
+  "name": "zyrass/mvc-poo",
+  "description": "demo",
+  "type": "project",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/controllers/",
+      "Model\\": "src/models/",
+      "Interfaces\\": "src/interfaces/",
+      "Traits\\": "src/traits/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Alain Guillon",
+      "email": "a.guillon@it-students.fr"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "symfony/var-dumper": "6.3.x-dev"
+  }
+}

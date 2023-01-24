@@ -1,0 +1,6 @@
+Options +FollowSymlinks
+RewriteEngine on
+RewriteRule ^/?page=home$ /home
+RewriteRule ^/?page=film$ /film
+
+RewriteRule ^/?page=error&action=404$ /error/404
