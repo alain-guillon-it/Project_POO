@@ -4,9 +4,27 @@ global $_controller, $_action, $_id;
 
 switch($_SERVER["REQUEST_URI"]) {
   case "/":
-    case "/home":
-      $_controller = "home";
-      break;
+  case "/home":
+    header("Location: /?page=home");
+    break;
+
+  case "/film":
+  case "/movie":
+    header("Location: /?page=film");
+    break;
+
+  case "/realisator":
+    header("Location: /?page=realisator");
+    break;
+
+  case "/serie";
+    header("Location: /?page=serie");
+    break;
+
+  case "/actor":
+    header("Location: /?page=actor");
+    break;
+
   default:
       $_controller = "error";
       break;
@@ -22,7 +40,7 @@ switch($_SERVER["REQUEST_URI"]) {
 if (isset($_GET["page"]) && !empty($_GET["page"])) {
   $getPage = trim(htmlspecialchars(strtolower($_GET["page"])));
   $checkPageValue = ["home", "film", "serie", "actor", "realisator", "error"];
-  $_controller = in_array($getPage, $checkPageValue) ? $getPage : header("Location: /?page=error&action=404");
+  $_controller = in_array($getPage, $checkPageValue) ? $getPage : header("Location: /?page=error&action=error");
 } 
 
 /**
@@ -34,9 +52,9 @@ if (isset($_GET["page"]) && !empty($_GET["page"])) {
  */
 if (isset($_GET["action"]) && !empty($_GET["action"])) {
   $getAction = trim(htmlspecialchars(strtolower($_GET["action"])));
-  $checkActionValue = ["welcome", "list", "detail", "404"];
+  $checkActionValue = ["welcome", "list", "detail", "error"];
 
-  $_action = in_array($getAction, $checkActionValue) ? $getAction : header("Location: /?page=error&action=404");
+  $_action = in_array($getAction, $checkActionValue) ? $getAction : header("Location: /?page=error&action=error");
 }
 
 /**

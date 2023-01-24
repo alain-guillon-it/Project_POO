@@ -23,7 +23,7 @@ function checkControllerByID(
     $_id = $idParam;
   } else {
     $_controller = "ErrorController";
-    $_action = "404";
+    $_action = "error";
     $_id = false;
   }
 }
